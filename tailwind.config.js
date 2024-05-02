@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      nunito: ["nunito", "sans-serif"],
+      pacifico: ["pacifico", "sans-serif"]
+    }
   },
   plugins: [],
 }
