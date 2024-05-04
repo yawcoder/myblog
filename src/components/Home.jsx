@@ -6,6 +6,7 @@ import { collection, getDocs } from 'firebase/firestore'
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const postCollectionRef = collection(db, "posts")
+  // const [articles, setArticles] = useState([])
 
   useEffect(() => {
     const getPosts = async () => {
