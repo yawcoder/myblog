@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaGithub} from 'react-icons/fa';
+import { FaGithub, FaLinkedin} from 'react-icons/fa';
 import logo from "../assets/logo.png"
 import { LiaBarsSolid } from "react-icons/lia";
 import { GoRss } from "react-icons/go";
@@ -23,7 +23,8 @@ const Navbar = () => {
           <li className="text-4xl md:text-lg"><Link to="/contact">Contact</Link></li>
         </ul>
         <div className="flex md:w-1/5 md:justify-end">
-          <button className="text-2xl"><FaGithub/></button>
+          <button className="text-2xl"><a href="https://www.linkedin.com/in/yawcoder" target="_blank"><FaLinkedin/></a></button>
+          <button className="text-2xl ml-4"><a href="https://github.com/yawcoder" target="_blank"><FaGithub/></a></button>
           <button className="text-2xl hidden md:inline-block ml-5"><GoRss/></button>
           <button onClick={() => {setShowLinks(true)}} className="text-4xl ml-4 mr-5 md:hidden"><LiaBarsSolid/></button>
         </div>
