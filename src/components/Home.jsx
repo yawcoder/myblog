@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import wavy from "../assets/wavy.png"
-import { db } from '../firebase-config'
-import { collection, getDocs } from 'firebase/firestore'
+import { useEffect, useState } from 'react';
+import wavy from "../assets/wavy.png";
+import { db } from '../firebase-config';
+import { collection, getDocs } from 'firebase/firestore';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
-  const postCollectionRef = collection(db, "posts")
-  // const [articles, setArticles] = useState([])
+  const postCollectionRef = collection(db, "Posts");
 
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postCollectionRef);
-      setPosts(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      setPosts(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
     }
     getPosts();
-  }, [])
+  }, []);
 
 
 
@@ -23,11 +22,9 @@ const Home = () => {
   return (
     <div className="w-full">
       <img src={wavy} className="w-screen"/>
-      <div className="w-[90%] mx-auto ">
-        <h2 className="uppercase font-bold">Recently Published Articles</h2>
-        {posts.map((post) => {
-          console.log(post.content)
-        })}
+      <div className="w-[90%] mx-auto my-5">
+        <h2 className="font-bold uppercase text-center text-gray-500">Recently Published Articles</h2>
+        {}
       </div>
     </div>
   )
