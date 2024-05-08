@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import wavy from "../assets/wavy.png";
 import { db } from '../firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -20,13 +22,30 @@ const Home = () => {
 
 
   return (
-    <div className="w-full">
+    <HelmetProvider>
+      <div className="w-full">
+      <Helmet>
+        <title>Isaac Anim</title>
+      </Helmet>
       <img src={wavy} className="w-screen"/>
-      <div className="w-[90%] mx-auto my-5">
-        <h2 className="font-bold uppercase text-center text-gray-500">Recently Published Articles</h2>
-        {}
-      </div>
+      <section className="w-[90%] mx-auto my-5 leading-[1.7rem]">
+        <h2 className="text-lg font-bold uppercase text-center text-gray-500 my-10">Recently Published Articles</h2>
+        {posts.map((post) => {
+          return(
+            <div key={post.id}>
+              <article className="hover:pointer">
+                <Link>
+                  <h2 className="text-2xl font-extrabold my-5">{post.title}</h2>
+                  <p>{post.summary}</p>
+                  <button className="my-5 font-extrabold">Read More</button>
+                </Link>
+              </article>
+            </div>
+          )
+        })}
+      </section>
     </div>
+    </HelmetProvider>
   )
 }
 
