@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/:pathName" element={<PostPage/>}/>
+          {/* <Route path="/:tag"/> */}
           <Route path="/tags" element={<Tags/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>

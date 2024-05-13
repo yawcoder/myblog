@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { doc, query, where, collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase-config';
 import parser from "html-react-parser";
+import { Link } from 'react-router-dom';
 
 const PostPage = () => {
   const pathNameObject = useParams();
@@ -29,9 +30,9 @@ const PostPage = () => {
     <HelmetProvider>
         <div className="w-full">
             <Helmet>
-                <title>
-                    
-                </title>
+                {post && (
+                  <title>{post.title}</title>
+                )}
             </Helmet>
             {post && (
               <div className="w-full">
@@ -39,6 +40,16 @@ const PostPage = () => {
                   <h1 className="font-bold mt-0">{post.title}</h1>
                 </section>
                 <section className="py-10 px-5">
+                <div className="flex justify-start gap-5 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 hover:[&>*:nth-child(2)]:[&>*:nth-child(3)]:text-red-400">
+                    {post.tags.map((tag, index) => {
+                      return(
+                        <Link key={index}>
+                          <span>#</span>
+                          <span className="">{tag}</span>
+                        </Link>
+                      )
+                    })}
+                  </div>
                   <article className="text-lg">
                     {parser(post.content)}
                   </article>

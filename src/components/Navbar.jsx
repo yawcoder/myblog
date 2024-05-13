@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="py-6 flex justify-between bg-orange-200 md:px-10 md:py-10">
         <div className="w-1/3 md:w-1/5"> 
           <Link to="/">
-            <img src={logo} alt="logo" className="ml-5 w-full"/>
+            <img src={logo} alt="logo" className="ml-5 w-full my-0"/>
           </Link>
         </div>
         <ul onClick={() => {setShowLinks()}} className={`${showLinks ? "absolute top-0 right-0 w-full h-screen text-center justify-center flex flex-col space-y-16 backdrop-blur-md duration-200 md:static md:flex-row md:w-[50%] md:h-10 md:space-y-0 md:gap-10" : "absolute top-0 right-0 w-0 h-screen text-center justify-center flex flex-col space-y-16 backdrop-blur-md duration-200 overflow-x-hidden md:static md:flex-row md:w-3/5 md:h-10 md:space-y-0 md:gap-10"}`}>

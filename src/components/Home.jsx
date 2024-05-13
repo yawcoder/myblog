@@ -27,7 +27,7 @@ const Home = () => {
       <Helmet>
         <title>Isaac Anim</title>
       </Helmet>
-      <img src={wavy} className="w-screen"/>
+      <img src={wavy} className="w-screen my-0"/>
       <section className="w-[90%] mx-auto my-5 leading-[1.7rem]">
         <h2 className="text-lg font-bold uppercase text-center text-gray-500 my-10">Recently Published Articles</h2>
         {posts.map((post) => {
