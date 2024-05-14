@@ -28,17 +28,25 @@ const Home = () => {
         <title>Isaac Anim</title>
       </Helmet>
       <img src={wavy} className="w-screen my-0"/>
-      <section className="w-[90%] mx-auto my-5 leading-[1.7rem]">
-        <h2 className="text-lg font-bold uppercase text-center text-gray-500 my-10">Recently Published Articles</h2>
+      <section className="w-[97%] mx-auto my-5 leading-[1.7rem]">
+        <h2 className="text-lg font-bold font-nunito uppercase text-center text-gray-500 my-10">Recently Published Articles</h2>
         {posts.map((post) => {
           return(
             <div key={post.id} className="w-full md:w-3/5 mx-auto">
               <article className="hover:pointer w-full">
-                <Link to={`/${post.pathName}`} className="[&>*:nth-child(1)]:hover:text-orange-400 [&>*:nth-child(3)]:hover:text-orange-400">
-                  <h2 className="text-2xl font-extrabold my-5 mx-auto">{post.title}</h2>
-                  <p className="text-lg leading-8">{post.summary}</p>
-                  <button className="my-5 font-extrabold">Read More...</button>
-                </Link>
+                  <h2 className="text-2xl font-extrabold mx-auto my-2 hover:text-orange-400"><Link to={`/${post.pathName}`} className="font-nunito">{post.title}</Link></h2>
+                  <div className="flex justify-start gap-5 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 hover:[&>*:nth-child(2)]:[&>*:nth-child(3)]:text-red-500">
+                    {post.tags.map((tag, index) => {
+                      return(
+                        <Link key={index}>
+                          <span>#</span>
+                          <span>{tag}</span>
+                        </Link>
+                      )
+                    })}
+                  </div>
+                  <p className="text-lg my-5 leading-8">{post.summary}</p>
+                  <Link to={`/${post.pathName}`} className="font-extrabold hover:text-orange-400">Read More...</Link>
               </article>
             </div>
           )

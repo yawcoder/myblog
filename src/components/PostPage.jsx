@@ -36,11 +36,12 @@ const PostPage = () => {
             </Helmet>
             {post && (
               <div className="w-full">
-                <section className="bg-orange-200 pt-16 pb-10 px-5 w-full">
-                  <h1 className="font-bold mt-0">{post.title}</h1>
+                <section className="bg-orange-200 pt-16 pb-10 px-10 w-full">
+                  <h1 className="md:w-3/5 mx-auto font-bold mt-0 font-nunito">{post.title}</h1>
+                  {console.log(post._updatedBy.timestamp.seconds)}
                 </section>
-                <section className="py-10 px-5">
-                <div className="flex justify-start gap-5 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 hover:[&>*:nth-child(2)]:[&>*:nth-child(3)]:text-red-400">
+                <section className="py-10 px-5 md:w-[97%] mx-auto">
+                <div className="md:w-3/5 mx-auto flex justify-start gap-5 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 hover:[&>*:nth-child(2)]:[&>*:nth-child(3)]:text-red-500">
                     {post.tags.map((tag, index) => {
                       return(
                         <Link key={index}>
@@ -50,7 +51,7 @@ const PostPage = () => {
                       )
                     })}
                   </div>
-                  <article className="text-lg">
+                  <article className="text-lg md:w-3/5 mx-auto leading-[2.1rem]">
                     {parser(post.content)}
                   </article>
                 </section>
