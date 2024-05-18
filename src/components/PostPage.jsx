@@ -40,7 +40,10 @@ const PostPage = () => {
         <div className="w-full">
             <Helmet>
                 {post && (
+                  <>
                   <title>{post.title}</title>
+                  <meta name="description" content={post.summary}/>
+                  </>
                 )}
             </Helmet>
             {post && (
