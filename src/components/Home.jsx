@@ -37,19 +37,19 @@ const Home = () => {
       <Helmet>
         <title>Isaac Anim</title>
       </Helmet>
-      <img src={wavy} className="w-screen my-0"/>
-      <section className="w-[97%] mx-auto my-5 leading-[1.7rem]">
-        <h2 className="text-lg font-bold font-nunito uppercase text-center text-gray-500 my-10">Recently Published Articles</h2>
+      {/* <img src={wavy} className="w-screen my-0"/> */}
+      <section className="w-[90%] mx-auto my-5 leading-[1.7rem]">
+        <h2 className="text-lg font-bold font-nunito uppercase text-center text-gray-500 mt-10">Recently Published Articles</h2>
         {posts.map((post) => {
           return(
-            <div key={post.id} className="w-full md:w-3/5 mx-auto my-20">
+            <div key={post.id} className="w-full md:w-3/5 mx-auto my-16">
               <article className="hover:pointer w-full">
-                  <h2 className="text-2xl font-extrabold mx-auto my-2 hover:text-orange-400"><Link to={`/${post.pathName}`} className="font-nunito">{post.title}</Link></h2>
+                  <h2 className="text-2xl font-extrabold mx-auto my-2 hover:text-red-400"><Link to={`/${post.pathName}`} className="font-nunito">{post.title}</Link></h2>
                   <p className="my-3 md:w-full mx-auto text-lg">{getDate(post._updatedBy.timestamp.seconds * 1000)}</p>
-                  <div className="flex justify-start gap-5 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 hover:[&>*:nth-child(2)]:[&>*:nth-child(3)]:text-red-500">
+                  <div className="flex justify-start gap-1 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(2)]:hover:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(2)]:hover:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 [&>*:nth-child(2)]:hover:[&>*:nth-child(3)]:text-red-500">
                     {post.tags.map((tag, index) => {
                       return(
-                        <Link key={index}>
+                        <Link key={index} className="border-[1px] border-gray-400 px-3 rounded-full">
                           <span>#</span>
                           <span>{tag}</span>
                         </Link>
@@ -57,7 +57,7 @@ const Home = () => {
                     })}
                   </div>
                   <p className="text-lg my-5 leading-8">{post.summary}</p>
-                  <Link to={`/${post.pathName}`} className="font-extrabold text-orange-400 hover:underline">Read More...</Link>
+                  <Link to={`/${post.pathName}`} className="font-extrabold text-red-400 hover:underline">Read More...</Link>
               </article>
             </div>
           )

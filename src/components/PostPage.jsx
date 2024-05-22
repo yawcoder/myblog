@@ -48,17 +48,17 @@ const PostPage = () => {
             </Helmet>
             {post && (
               <div className="w-full">
-                <section className="bg-orange-200 pt-16 pb-10 px-10 w-full">
+                <section className="pt-16 pb-10 mx-auto w-[90%]">
                   <h1 className="md:w-3/5 mx-auto font-bold mt-0 font-nunito">{post.title}</h1>
                   <p className="mb-0 mt-3 md:w-3/5 mx-auto text-lg">{getDate(post._updatedBy.timestamp.seconds * 1000)}</p>
                 </section>
-                <section className="py-10 px-5 md:w-[97%] mx-auto">
-                <div className="md:w-3/5 mx-auto flex justify-start gap-5 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 hover:[&>*:nth-child(2)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 hover:[&>*:nth-child(2)]:[&>*:nth-child(3)]:text-red-500">
+                <section className="py-10 px-5 md:w-[90%] mx-auto">
+                <div className="md:w-3/5 mx-auto flex justify-start gap-1 md:gap-16 [&>*:nth-child(1)]:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(2)]:hover:[&>*:nth-child(1)]:text-orange-400 [&>*:nth-child(1)]:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(2)]:hover:[&>*:nth-child(2)]:text-blue-400 [&>*:nth-child(1)]:[&>*:nth-child(3)]:text-red-500 [&>*:nth-child(2)]:hover:[&>*:nth-child(3)]:text-red-500">
                     {post.tags.map((tag, index) => {
                       return(
-                        <Link key={index}>
+                        <Link key={index} className="border-[1px] border-gray-400 px-3 rounded-full">
                           <span>#</span>
-                          <span className="">{tag}</span>
+                          <span>{tag}</span>
                         </Link>
                       )
                     })}

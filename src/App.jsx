@@ -6,6 +6,7 @@ import Tags from './components/Tags';
 import About from './components/About';
 import Contact from './components/Contact';
 import PostPage from './components/PostPage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>
         </Routes>
+        <Footer/>
       </Router>
     </div>
   )
