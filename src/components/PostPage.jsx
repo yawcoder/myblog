@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
-import { doc, query, where, collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase-config';
 import parser from "html-react-parser";
 import { Link } from 'react-router-dom';
+import Prismloader from './Prismloader';
 
 const PostPage = () => {
   const pathNameObject = useParams();
   const pathName = `${pathNameObject.pathName}`;
-  const [post, setPost] = useState(null)
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     const getPost = async () => {
@@ -21,6 +20,7 @@ const PostPage = () => {
       })
     }
     getPost();
+
   }, [])
 
   const getDate = (timestamp) => {
@@ -47,7 +47,7 @@ const PostPage = () => {
                 )}
             </Helmet>
             {post && (
-              <div className="w-full">
+              <article className="w-full">
                 <section className="pt-16 pb-10 mx-auto w-[90%]">
                   <h1 className="md:w-3/5 mx-auto font-bold mt-0 font-nunito">{post.title}</h1>
                   <p className="mb-0 mt-3 md:w-3/5 mx-auto text-lg">{getDate(post._updatedBy.timestamp.seconds * 1000)}</p>
@@ -63,12 +63,13 @@ const PostPage = () => {
                       )
                     })}
                   </div>
-                  <article className="text-lg md:w-3/5 mx-auto leading-[2.1rem]">
+                  <div className="text-lg md:w-3/5 mx-auto leading-[2.1rem]">
                     {parser(post.content)}
-                  </article>
+                  </div>
                 </section>
-              </div>
+              </article>
             )}
+            <Prismloader />
         </div>
     </HelmetProvider>
   )
